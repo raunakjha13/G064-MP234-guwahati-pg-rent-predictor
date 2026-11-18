@@ -1,0 +1,6 @@
+mp234_env/
+__pycache__/
+*.pyc
+mlruns/
+mlartifacts/
+.pytest_cache/
