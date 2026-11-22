@@ -36,10 +36,10 @@ data_issues:
     true_levels: 3    
 
 tracking:
-  experiment_name: null
-  best_run_id: null        # the MLflow run id of your v1 model
-  registered_model_name: null
-  champion_version: null
+  experiment_name: mp234-pg-rent
+  best_run_id: 81a9cd73f8444e98b7f8fd62b9bda90e
+  registered_model_name: mp234-rent-model
+  champion_version: 1
 
 monitoring:
   psi:                     # cleaned train.csv vs later.csv, 10 bins
