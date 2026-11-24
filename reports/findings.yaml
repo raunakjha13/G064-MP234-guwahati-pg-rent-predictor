@@ -55,6 +55,6 @@ monitoring:
     'Sector West': 2918.7
     'Market Side': 2889.8
   worst_served_group: Sector East
-  mae_v1_on_check: null
-  mae_v2_on_check: null
-  decision: null
+  mae_v1_on_check: 3400.7
+  mae_v2_on_check: 2062.6
+  decision: promote
