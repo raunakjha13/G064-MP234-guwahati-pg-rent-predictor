@@ -52,3 +52,28 @@ def main():
         with mlflow.start_run() as run:
             mlflow.log_param("data_sha256", data_hash)
             mlflow.log_params(settings)
+
+            model = build_model(settings)
+            model.fit(train[FEATURES], train[TARGET])
+            mae = mean_absolute_error(later[TARGET], model.predict(later[FEATURES]))
+            mlflow.log_metric("mae_later", mae)
+
+            info = mlflow.sklearn.log_model(
+                model, name="model", serialization_format="cloudpickle"
+            )
+            print(f"run {run.info.run_id}  settings={settings}  mae_later={mae:.1f}")
+
+            if mae < best["mae"]:
+                best = {"mae": mae, "run_id": run.info.run_id,
+                        "uri": info.model_uri, "model": model}
+
+    version = mlflow.register_model(best["uri"], MODEL_NAME).version
+    MlflowClient().set_registered_model_alias(MODEL_NAME, "champion", version)
+    joblib.dump(best["model"], "models/model.joblib")
+
+    print("\nBEST RUN ID:", best["run_id"])
+    print("MODEL:", MODEL_NAME, "| champion version:", version, "| MAE:", round(best["mae"], 1))
+
+
+if __name__ == "__main__":
+    main()
