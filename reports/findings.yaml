@@ -42,19 +42,19 @@ tracking:
   champion_version: 1
 
 monitoring:
-  psi:                     # cleaned train.csv vs later.csv, 10 bins
-    distance_to_campus_km: null
-    room_area_sqft: null
-    sharing: null
-    meals_per_day: null
-    building_age_yr: null
-    wifi_mbps: null
-  most_drifted_feature: null
-  mae_by_group:            # v1 on later.csv, per value of locality
-    'Sector East': null
-    'Sector West': null
-    'Market Side': null
-  worst_served_group: null
-  mae_v1_on_check: null    # v1 on the last 30% of later.csv (by date)
-  mae_v2_on_check: null    # v2 on the same rows
-  decision: null           # promote or keep
+  psi:
+    distance_to_campus_km: 0.0441
+    room_area_sqft: 0.0387
+    sharing: 0.0258
+    meals_per_day: 0.0002
+    building_age_yr: 3.4568
+    wifi_mbps: 0.0618
+  most_drifted_feature: building_age_yr
+  mae_by_group:
+    'Sector East': 4511.2
+    'Sector West': 2918.7
+    'Market Side': 2889.8
+  worst_served_group: Sector East
+  mae_v1_on_check: null
+  mae_v2_on_check: null
+  decision: null
