@@ -1,0 +1,12 @@
+data:
+  train_path: data/raw/train.csv
+  later_path: data/raw/later.csv
+  holdout_path: data/raw/holdout_features.csv
+target: rent_rs
+mlflow:
+  experiment: mp234-pg-rent
+  model_name: mp234-rent-model
+model_settings:
+  - {n_estimators: 100, max_depth: 6, min_samples_leaf: 5}
+  - {n_estimators: 200, max_depth: 10, min_samples_leaf: 3}
+  - {n_estimators: 300, max_depth: null, min_samples_leaf: 1}
