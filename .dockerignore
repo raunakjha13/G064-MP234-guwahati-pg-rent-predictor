@@ -1,0 +1,13 @@
+.git
+.github
+.dvc
+.pytest_cache
+mp234_env
+mlruns
+mlflow.db
+data/
+tests/
+reports/
+predictions/
+__pycache__/
+*.pyc
